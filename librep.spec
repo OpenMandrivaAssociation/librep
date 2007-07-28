@@ -1,5 +1,6 @@
 %define major 9
 %define libname %mklibname rep %major
+%define libnamedev %mklibname -d rep
 
 Name:		librep
 Summary:	An embeddable LISP environment
@@ -11,7 +12,7 @@ BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texin
 BuildRequires:  automake1.8
 URL:		http://librep.sourceforge.net/
 Source0:	http://ftp.gnome.org/stable/sources/librep/%{name}-%{version}.tar.bz2
-Patch0:		librep-0.17-fix-underquoted-calls.patch.bz2
+Patch0:		librep-0.17-fix-underquoted-calls.patch
 Requires(post): info-install
 Requires(preun): info-install
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -34,23 +35,22 @@ Group:		System/Libraries
 %description -n	%{libname}
 Libraries used by librep
 
-%package -n	%{libname}-devel
+%package -n	%{libnamedev}
 Summary:	Librep include files and link libraries
 Group:		Development/Other
 Requires:	%{name} = %{version}
 Requires:	%{libname} = %{version}
-Obsoletes:	%{name}-devel
+Obsoletes:	%{name}-devel %mklibname -d %name 9
 Provides:	%{name}-devel = %{version}
 
-%description -n	%{libname}-devel
+%description -n	%{libnamedev}
 Link libraries and C header files for librep development.
 
 
 %prep
 %setup -q
 %patch0 -p1 -b .underquoted
-aclocal
-autoconf||autoconf
+libtoolize --copy --force
 
 %build
 %configure2_5x --with-readline
@@ -90,9 +90,9 @@ rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/librep.so.*
+%{_libdir}/librep.so.9*
 
-%files -n %{libname}-devel
+%files -n %{libnamedev}
 %defattr(-,root,root)
 %{_bindir}/rep-config
 %multiarch %{multiarch_bindir}/rep-config
