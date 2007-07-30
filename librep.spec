@@ -5,7 +5,7 @@
 Name:		librep
 Summary:	An embeddable LISP environment
 Version:	0.17
-Release:	%mkrel 7
+Release:	%mkrel 8
 License:	GPL
 Group:		System/Libraries
 BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texinfo
@@ -40,7 +40,7 @@ Summary:	Librep include files and link libraries
 Group:		Development/Other
 Requires:	%{name} = %{version}
 Requires:	%{libname} = %{version}
-Obsoletes:	%{name}-devel %mklibname -d %name 9
+Obsoletes:	%mklibname -d %name 9
 Provides:	%{name}-devel = %{version}
 
 %description -n	%{libnamedev}
