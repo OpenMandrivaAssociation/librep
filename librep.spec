@@ -15,7 +15,6 @@ Source0:	http://ftp.gnome.org/stable/sources/librep/%{name}-%{version}.tar.bz2
 Patch0:		librep-0.17-fix-underquoted-calls.patch
 Requires(post): info-install
 Requires(preun): info-install
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 
 %description
