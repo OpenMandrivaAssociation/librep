@@ -62,7 +62,9 @@ rm -rf %{buildroot}
 %makeinstall_std host_type=%{_target_platform}
 %multiarch_binaries %buildroot%_bindir/rep-config
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
 
 %post
 %_install_info librep.info
@@ -71,7 +73,9 @@ rm -rf %{buildroot}
 %preun
 %_remove_install_info librep.info
 
+%if %mdkversion < 200900
 %postun -n %{libname}  -p /sbin/ldconfig
+%endif
 
 
 %clean
