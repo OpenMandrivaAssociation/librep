@@ -5,7 +5,7 @@
 Name:		librep
 Summary:	An embeddable LISP environment
 Version:	0.17
-Release:	%mkrel 9
+Release:	%mkrel 11
 License:	GPL
 Group:		System/Libraries
 BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texinfo
