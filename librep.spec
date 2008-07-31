@@ -5,14 +5,15 @@
 Name:		librep
 Summary:	An embeddable LISP environment
 Version:	0.17
-Release:	%mkrel 11
-License:	GPL
+Release:	%mkrel 9
+License:	GPLv2+
 Group:		System/Libraries
 BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texinfo
 BuildRequires:  automake1.8
 URL:		http://librep.sourceforge.net/
 Source0:	http://ftp.gnome.org/stable/sources/librep/%{name}-%{version}.tar.bz2
 Patch0:		librep-0.17-fix-underquoted-calls.patch
+Patch1:		librep-r2899-fix-configure.patch
 Requires(post): info-install
 Requires(preun): info-install
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -50,7 +51,10 @@ Link libraries and C header files for librep development.
 %prep
 %setup -q
 %patch0 -p1 -b .underquoted
+%patch1 -p1
 libtoolize --copy --force
+aclocal
+autoconf
 
 %build
 %configure2_5x --with-readline
