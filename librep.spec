@@ -5,8 +5,8 @@
 %define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
-Version:	0.17.2
-Release:	%mkrel 3
+Version:	0.17.3
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
 BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texinfo
@@ -62,6 +62,7 @@ autoconf
 rm -rf %{buildroot}
 %makeinstall_std host_type=%{_target_platform}
 %multiarch_binaries %buildroot%_bindir/rep-config
+rm -f %buildroot%{_libdir}/librep.a
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
@@ -108,4 +109,3 @@ rm -rf %{buildroot}
 %{_includedir}/*
 %_libdir/pkgconfig/librep.pc
 %{_libexecdir}/rep/%{_target_platform}
-%{_datadir}/aclocal/rep.m4
