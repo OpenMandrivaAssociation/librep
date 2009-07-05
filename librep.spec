@@ -2,10 +2,11 @@
 %define libname %mklibname rep %major
 %define libnamedev %mklibname -d rep
 
+%define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
 Version:	0.90.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Libraries
 BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texinfo
