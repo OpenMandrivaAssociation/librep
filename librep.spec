@@ -5,7 +5,7 @@
 %define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
-Version:	0.90.2
+Version:	0.90.3
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
@@ -55,7 +55,6 @@ Link libraries and C header files for librep development.
 %install
 rm -rf %{buildroot}
 %makeinstall_std host_type=%{_target_platform}
-%multiarch_binaries %buildroot%_bindir/rep-config
 rm -f %buildroot%{_libdir}/librep.a
 
 %if %mdkversion < 200900
@@ -81,6 +80,8 @@ rm -rf %{buildroot}
 %{_bindir}/rep
 %{_bindir}/rep-remote
 %{_datadir}/rep
+%_mandir/man1/rep-remote.1*
+%_mandir/man1/rep.1*
 %dir %{_libexecdir}/rep
 %{_libexecdir}/rep/%{version}
 %{_infodir}/librep*
@@ -92,10 +93,10 @@ rm -rf %{buildroot}
 
 %files -n %{libnamedev}
 %defattr(-,root,root)
-%{_bindir}/rep-config
-%multiarch %{multiarch_bindir}/rep-config
 %{_bindir}/rep-xgettext
 %{_bindir}/repdoc
+%_mandir/man1/rep-xgettext.1*
+%_mandir/man1/repdoc.1*
 %{_libdir}/librep.so
 %{_libdir}/librep.la
 %{_includedir}/*
