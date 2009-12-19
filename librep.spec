@@ -5,7 +5,7 @@
 %define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
-Version:	0.90.3
+Version:	0.90.4
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
@@ -47,6 +47,8 @@ Link libraries and C header files for librep development.
 
 %prep
 %setup -q
+#gw config.sub is missing in 0.90.4
+automake -a ||:
 
 %build
 %configure2_5x --with-readline
