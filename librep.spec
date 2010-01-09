@@ -5,7 +5,7 @@
 %define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
-Version:	0.90.4
+Version:	0.90.5
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
