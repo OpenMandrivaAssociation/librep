@@ -5,8 +5,8 @@
 %define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
-Version:	0.90.6
-Release:	%mkrel 2
+Version:	0.91.0
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
 BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texinfo
@@ -78,7 +78,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS BUGS ChangeLog COPYING INSTALL NEWS README THANKS TODO
+%doc ChangeLog COPYING INSTALL NEWS README TODO
 %{_bindir}/rep
 %{_bindir}/rep-remote
 %{_datadir}/rep
