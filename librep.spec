@@ -5,14 +5,14 @@
 %define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
-Version:	0.91.0
+Version:	0.91.1
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
 BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texinfo
 BuildRequires: ffi5-devel
 URL:		http://librep.sourceforge.net/
-Source0:	http://download.tuxfamily.org/sawfish/librep/%{name}-%{version}.tar.xz
+Source0:	http://download.tuxfamily.org/librep/%{name}-%{version}.tar.xz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 
@@ -47,8 +47,6 @@ Link libraries and C header files for librep development.
 
 %prep
 %setup -q
-#gw config.sub is missing in 0.90.4
-automake -a ||:
 
 %build
 %configure2_5x --with-readline
