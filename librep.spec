@@ -1,11 +1,11 @@
-%define major 9
+%define major 16
 %define libname %mklibname rep %major
 %define libnamedev %mklibname -d rep
 
 %define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
-Version:	0.91.1
+Version:	0.92.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
@@ -82,14 +82,13 @@ rm -rf %{buildroot}
 %{_datadir}/rep
 %_mandir/man1/rep-remote.1*
 %_mandir/man1/rep.1*
-%dir %{_libexecdir}/rep
-%{_libexecdir}/rep/%{version}
+%{_libexecdir}/rep/
 %{_infodir}/librep*
 %{_datadir}/emacs/site-lisp/*.el
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/librep.so.9*
+%{_libdir}/librep.so.%{major}*
 
 %files -n %{libnamedev}
 %defattr(-,root,root)
@@ -101,4 +100,3 @@ rm -rf %{buildroot}
 %{_libdir}/librep.la
 %{_includedir}/*
 %_libdir/pkgconfig/librep.pc
-%{_libexecdir}/rep/%{_target_platform}
