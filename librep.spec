@@ -5,7 +5,7 @@
 %define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
-Version:	0.92.0
+Version:	0.92.1
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
@@ -13,6 +13,7 @@ BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texin
 BuildRequires: ffi5-devel
 URL:		http://librep.sourceforge.net/
 Source0:	http://download.tuxfamily.org/librep/%{name}-%{version}.tar.xz
+Patch0:		librep-0.92.1-fix-pkgconfig-file.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 
@@ -47,6 +48,7 @@ Link libraries and C header files for librep development.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %configure2_5x --with-readline
