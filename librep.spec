@@ -6,7 +6,7 @@
 Name:		librep
 Summary:	An embeddable LISP environment
 Version:	0.92.1b
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Libraries
 BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texinfo
@@ -56,11 +56,8 @@ Link libraries and C header files for librep development.
 %install
 rm -rf %{buildroot}
 %makeinstall_std host_type=%{_target_platform}
-rm -f %buildroot%{_libdir}/librep.a
+rm -f %buildroot%{_libdir}/librep.*a
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
 
 %post
 %_install_info librep.info
@@ -68,9 +65,6 @@ rm -f %buildroot%{_libdir}/librep.a
 %preun
 %_remove_install_info librep.info
 
-%if %mdkversion < 200900
-%postun -n %{libname}  -p /sbin/ldconfig
-%endif
 
 %clean
 rm -rf %{buildroot}
@@ -98,6 +92,5 @@ rm -rf %{buildroot}
 %_mandir/man1/rep-xgettext.1*
 %_mandir/man1/repdoc.1*
 %{_libdir}/librep.so
-%{_libdir}/librep.la
 %{_includedir}/*
 %_libdir/pkgconfig/librep.pc
