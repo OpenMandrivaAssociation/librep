@@ -5,15 +5,14 @@
 %define _requires_exceptions /usr/bin/rep
 Name:		librep
 Summary:	An embeddable LISP environment
-Version:	0.92.1b
-Release:	%mkrel 2
+Version:	0.92.2
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 BuildRequires:	gmp-devel gdbm-devel gpm-devel ncurses-devel readline-devel texinfo
 BuildRequires: ffi5-devel
 URL:		http://librep.sourceforge.net/
 Source0:	http://download.tuxfamily.org/librep/%{name}-%{version}.tar.xz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 
 %description
@@ -54,7 +53,6 @@ Link libraries and C header files for librep development.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std host_type=%{_target_platform}
 rm -f %buildroot%{_libdir}/librep.*a
 
@@ -66,11 +64,7 @@ rm -f %buildroot%{_libdir}/librep.*a
 %_remove_install_info librep.info
 
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc ChangeLog COPYING INSTALL NEWS README TODO
 %{_bindir}/rep
 %{_bindir}/rep-remote
@@ -82,11 +76,9 @@ rm -rf %{buildroot}
 %{_datadir}/emacs/site-lisp/*.el
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/librep.so.%{major}*
 
 %files -n %{libnamedev}
-%defattr(-,root,root)
 %{_bindir}/rep-xgettext
 %{_bindir}/repdoc
 %_mandir/man1/rep-xgettext.1*
