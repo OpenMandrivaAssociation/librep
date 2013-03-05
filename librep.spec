@@ -4,8 +4,6 @@
 %define libname %mklibname rep %major
 %define devname %mklibname -d rep
 
-%define _requires_exceptions /usr/bin/rep
-
 Summary:	An embeddable LISP environment
 Name:		librep
 Version:	0.92.3
