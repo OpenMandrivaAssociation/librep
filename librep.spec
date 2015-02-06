@@ -7,7 +7,7 @@
 Summary:	An embeddable LISP environment
 Name:		librep
 Version:	0.92.3
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://librep.sourceforge.net/
