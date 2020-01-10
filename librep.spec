@@ -79,7 +79,7 @@ Link libraries and C header files for librep development.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure2_5x \
