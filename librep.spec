@@ -10,7 +10,7 @@ Version:	0.92.3
 Release:	3
 License:	GPLv2+
 Group:		System/Libraries
-Url:		http://librep.sourceforge.net/
+Url:		https://librep.sourceforge.net/
 Source0:	http://download.tuxfamily.org/librep/%{name}-%{version}.tar.xz
 Source1:	http://download.tuxfamily.org/librep/%{name}-%{version}.tar.xz.sha1
 BuildRequires:	texinfo
